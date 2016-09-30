@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.view.Gravity;
 
 public class MainActivity extends Activity {
 
@@ -69,30 +70,47 @@ public class MainActivity extends Activity {
 
                 // Check if the user reached the guess limit
                 if (guessCount > 10) {
-                    Toast.makeText(getApplicationContext(), "Please Reset.", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getApplicationContext(), "Please Reset.", Toast.LENGTH_SHORT).show();
+                    Toast toastMsg= Toast.makeText(getApplicationContext(), "Please Reset.", Toast.LENGTH_SHORT);
+                    toastMsg.setGravity(Gravity.TOP, 0, 575);
+                    toastMsg.show();
                     return;
                 }
 
                 // VALIDATE the win condition
                 if (userGuess == theNumber.getCurrentRandomNumber()) {
                     if (guessCount < 5) {
-                        Toast.makeText(getApplicationContext(), "You Guessed The Right Number! SUPERIOR WIN!", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(getApplicationContext(), "You Guessed The Right Number! SUPERIOR WIN!", Toast.LENGTH_SHORT).show();
+                        Toast toastMsg= Toast.makeText(getApplicationContext(), "You Guessed The Right Number! SUPERIOR WIN!", Toast.LENGTH_SHORT);
+                        toastMsg.setGravity(Gravity.TOP, 0, 575);
+                        toastMsg.show();
                     }
 
                     if (guessCount >= 6 && guessCount <= 10) {
-                        Toast.makeText(getApplicationContext(), "You Guessed The Right Number! Excellent Win!", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(getApplicationContext(), "You Guessed The Right Number! Excellent Win!", Toast.LENGTH_SHORT).show();
+                        Toast toastMsg= Toast.makeText(getApplicationContext(), "You Guessed The Right Number! Excellent Win!", Toast.LENGTH_SHORT);
+                        toastMsg.setGravity(Gravity.TOP, 0, 575);
+                        toastMsg.show();
                     }
                 } else {
                     // Check if the guess was too high or low
                     if (userGuess < theNumber.getCurrentRandomNumber()) {
-                        Toast.makeText(getApplicationContext(), "You Guessed Too Low.", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(getApplicationContext(), "You Guessed Too Low.", Toast.LENGTH_SHORT).show();
+                        Toast toastMsg= Toast.makeText(getApplicationContext(), "You Guessed Too Low.", Toast.LENGTH_SHORT);
+                        toastMsg.setGravity(Gravity.TOP, 0, 575);
+                        toastMsg.show();
+
                         userGuessText.requestFocus();
                         // guessCount++;
                         Log.i("guessCount is ", Integer.toString(guessCount));
                     }
 
                     if (userGuess > theNumber.getCurrentRandomNumber()) {
-                        Toast.makeText(getApplicationContext(), "You Guessed Too High.", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(getApplicationContext(), "You Guessed Too High.", Toast.LENGTH_SHORT).show();
+                        Toast toastMsg= Toast.makeText(getApplicationContext(), "You Guessed Too High.", Toast.LENGTH_SHORT);
+                        toastMsg.setGravity(Gravity.TOP, 0, 575);
+                        toastMsg.show();
+
                         userGuessText.requestFocus();
                         // guessCount++;
                         Log.i("guessCount is ", Integer.toString(guessCount));
@@ -118,7 +136,10 @@ public class MainActivity extends Activity {
         resetButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(getApplicationContext(), "The number to guess is " + theNumber.getCurrentRandomNumber() , Toast.LENGTH_LONG).show();
+                // Toast.makeText(getApplicationContext(), "The number to guess is " + theNumber.getCurrentRandomNumber() , Toast.LENGTH_LONG).show();
+                Toast toastMsg= Toast.makeText(getApplicationContext(), "The number to guess is " + theNumber.getCurrentRandomNumber(), Toast.LENGTH_LONG);
+                toastMsg.setGravity(Gravity.TOP, 0, 575);
+                toastMsg.show();
                 return true;
             }
         });
